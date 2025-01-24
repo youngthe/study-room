@@ -1,8 +1,13 @@
 package com.example.studyroom.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -16,7 +21,8 @@ public class Seat {
     /** 좌석명 **/
     private String name;
 
-    /** 0 비어 있음, 1 좌석 있음 **/
-    private String status;
+    @OneToMany(mappedBy = "seat", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Reservation> reservations = new ArrayList<>();
 
 }
