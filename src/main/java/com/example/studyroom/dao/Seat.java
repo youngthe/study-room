@@ -16,6 +16,7 @@ import java.util.List;
 public class Seat {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int pk;
 
     /** 좌석명 **/
