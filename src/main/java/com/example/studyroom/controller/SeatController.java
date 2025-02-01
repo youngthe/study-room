@@ -20,7 +20,7 @@ public class SeatController {
     @Autowired
     private SeatService seatService;
 
-    @GetMapping( "/seat")
+    @GetMapping("/seat")
     public Map<String, Object> getSeatList(){
 
         Map<String, Object> result = new HashMap<>();
@@ -37,7 +37,7 @@ public class SeatController {
     }
 
     /** 좌석 예약 **/
-    @PostMapping( "/reservation")
+    @PostMapping("/reservation")
     public Map<String, Object> saveReservation(@RequestBody SeatReservationVo seatReservationVo){
 
         Map<String, Object> result = new HashMap<>();
@@ -53,7 +53,7 @@ public class SeatController {
     }
 
     /** 관리자 기능 **/
-    @PostMapping( "/seat")
+    @PostMapping("/seat")
     public Map<String, Object> saveSeat(@RequestBody Seat seat){
 
         Map<String, Object> result = new HashMap<>();
