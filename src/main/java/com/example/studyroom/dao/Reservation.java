@@ -3,12 +3,14 @@ package com.example.studyroom.dao;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
 @Table
 @Entity
 @Getter
+@Setter
 public class Reservation {
 
     @Id

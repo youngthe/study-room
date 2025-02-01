@@ -2,6 +2,7 @@ package com.example.studyroom.controller;
 
 import com.example.studyroom.dao.Seat;
 import com.example.studyroom.service.SeatService;
+import com.example.studyroom.vo.SeatReservationVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +36,23 @@ public class SeatController {
         }
     }
 
+    /** 좌석 예약 **/
+    @PostMapping( "/reservation")
+    public Map<String, Object> saveReservation(@RequestBody SeatReservationVo seatReservationVo){
+
+        Map<String, Object> result = new HashMap<>();
+        try{
+            seatService.saveSeatReservation(seatReservationVo);
+            result.put("code", 200);
+            return result;
+        } catch (Exception e){
+            e.printStackTrace();
+            result.put("code", 400);
+            return result;
+        }
+    }
+
+    /** 관리자 기능 **/
     @PostMapping( "/seat")
     public Map<String, Object> saveSeat(@RequestBody Seat seat){
 
